@@ -7,10 +7,7 @@
       value={{this.title}}
       {{on "input" this.updateTitle}}
     />
-    <button type="button" class="btn add-btn"><i class="fas fa-plus"></i> Add Movie</button>
-    {{!-- <LinkTo @route="movies.add" class="btn add-btn">
-
-</LinkTo> --}}
+    <button type="button"><LinkTo @route="addm" class="btn add-btn"><i class="fas fa-plus"></i> Add Movie</LinkTo></button>
 
     <button type="button" class="btn delete-btn">
       <i class="fas fa-trash"></i> Delete
