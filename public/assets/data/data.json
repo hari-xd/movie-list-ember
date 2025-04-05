@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "The Dark Knight",
+    "year": 2008,
+    "genre": "Action",
+    "imdb": 5.6,
+    "box_office": "1.005B"
+  },
+  {
+    "id": 2,
+    "name": "Inception",
+    "year": 2010,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "836M"
+  },
+  {
+    "id": 3,
+    "name": "Parasite",
+    "year": 2019,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "258M"
+  },
+  {
+    "id": 4,
+    "name": "The Shawshank Redemption",
+    "year": 1994,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "73M"
+  },
+  {
+    "id": 5,
+    "name": "Pulp Fiction",
+    "year": 1994,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "214M"
+  },
+  {
+    "id": 6,
+    "name": "The Godfather",
+    "year": 1972,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "291M"
+  },
+  {
+    "id": 7,
+    "name": "Spirited Away",
+    "year": 2001,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "395M"
+  },
+  {
+    "id": 8,
+    "name": "Interstellar",
+    "year": 2014,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "701M"
+  },
+  {
+    "id": 9,
+    "name": "The Matrix",
+    "year": 1999,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "465M"
+  },
+  {
+    "id": 10,
+    "name": "Fight Club",
+    "year": 1999,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "101M"
+  },
+  {
+    "id": 11,
+    "name": "The Dark Knight",
+    "year": 2008,
+    "genre": "Action",
+    "imdb": 5.6,
+    "box_office": "1.005B"
+  },
+  {
+    "id": 12,
+    "name": "Inception",
+    "year": 2010,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "836M"
+  },
+  {
+    "id": 13,
+    "name": "Parasite",
+    "year": 2019,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "258M"
+  },
+  {
+    "id": 14,
+    "name": "The Shawshank Redemption",
+    "year": 1994,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "73M"
+  },
+  {
+    "id": 15,
+    "name": "Pulp Fiction",
+    "year": 1994,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "214M"
+  },
+  {
+    "id": 16,
+    "name": "The Godfather",
+    "year": 1972,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "291M"
+  },
+  {
+    "id": 17,
+    "name": "Spirited Away",
+    "year": 2001,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "395M"
+  },
+  {
+    "id": 18,
+    "name": "Interstellar",
+    "year": 2014,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "701M"
+  },
+  {
+    "id": 19,
+    "name": "The Matrix",
+    "year": 1999,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "465M"
+  },
+  {
+    "id": 20,
+    "name": "Fight Club",
+    "year": 1999,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "101M"
+  }
+]

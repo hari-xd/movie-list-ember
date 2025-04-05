@@ -1,1 +1,301 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+/* stylelint-disable-next-line prettier/prettier */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* stylelint-disable-next-line prettier/prettier */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #dcdad2;
+  font-family: Roboto, sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+
+nav ol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+nav ol li {
+  cursor: pointer;
+}
+
+nav ol li a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  background-color: #e5bc2c;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.logo h2 {
+  font-family: Oswald, sans-serif;
+}
+
+.container {
+  padding: 20px 8%;
+}
+
+.homepage p {
+  margin: 15px 0;
+  text-align: justify;
+}
+
+.show-btn button {
+  padding: 10px 20px;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0 0;
+  transition: all 0.4s ease-in-out;
+  border: 1px solid black;
+  background-color: transparent;
+}
+
+.show-btn button:hover {
+  background-color: #e5bc2c;
+  color: white;
+  border: none;
+}
+
+.show-btn button a {
+  text-decoration: none;
+  color: black;
+}
+
+.show-btn button:hover a {
+  color: white;
+}
+
+.boddy {
+  margin: 20px 0;
+}
+
+.tb {
+  margin: 10px 0 0;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.tb::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tb::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.tb::-webkit-scrollbar-thumb {
+  background-color: #e5bc2c;
+  border-radius: 10px;
+  border: 2px solid #f3f3f3;
+}
+
+.tb::-webkit-scrollbar-thumb:hover {
+  background-color: #d4a91b;
+}
+
+.movie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.movie-table th,
+.movie-table td {
+  text-align: center;
+}
+
+.movie-table thead {
+  background-color: #e5bd2cc9;
+  color: #fff;
+}
+
+.movie-table thead th {
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+.movie-table tbody tr {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-table tbody td {
+  padding: 10px 16px;
+  font-size: 15px;
+  color: #2e3c3c;
+}
+
+.movie-table thead th:not(:last-child),
+.movie-table tbody td:not(:last-child) {
+  border-right: 1px solid #ccc; /* Light gray vertical border */
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.add-btn,
+.delete-btn {
+  text-decoration: none;
+}
+
+#search-input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn i {
+  font-size: 18px;
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+}
+
+.form-container h2 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group select {
+  width: 100%;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #3498db;
+}
+
+.form-input {
+  width: 95%;
+  padding: 0.8rem;
+  border: 2px solid #ecf0f1;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btnn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.btnn:hover {
+  opacity: 0.9;
+}
+
+.submit-btn {
+  background: #27ae60;
+  color: white;
+}
+
+.cancel-btn {
+  background: #e74c3c;
+  color: white;
+  text-decoration: none;
+}
