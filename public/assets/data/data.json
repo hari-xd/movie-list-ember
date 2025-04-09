@@ -158,5 +158,245 @@
     "genre": "Drama",
     "imdb": 5.6,
     "box_office": "101M"
+  },
+  {
+    "id": 21,
+    "name": "Eclipse of Time",
+    "year": 2017,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "512M"
+  },
+  {
+    "id": 22,
+    "name": "Crimson City",
+    "year": 2015,
+    "genre": "Action",
+    "imdb": 5.6,
+    "box_office": "320M"
+  },
+  {
+    "id": 23,
+    "name": "Echoes of Silence",
+    "year": 2020,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "175M"
+  },
+  {
+    "id": 24,
+    "name": "The Glass Empire",
+    "year": 2011,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "89M"
+  },
+  {
+    "id": 25,
+    "name": "Midnight Verdict",
+    "year": 2018,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "210M"
+  },
+  {
+    "id": 26,
+    "name": "Frozen Heir",
+    "year": 2004,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "342M"
+  },
+  {
+    "id": 27,
+    "name": "Beyond the Void",
+    "year": 2016,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "684M"
+  },
+  {
+    "id": 28,
+    "name": "Digital Ghost",
+    "year": 2021,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "205M"
+  },
+  {
+    "id": 29,
+    "name": "Ashes of Glory",
+    "year": 1998,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "57M"
+  },
+  {
+    "id": 30,
+    "name": "Code Black",
+    "year": 2013,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "196M"
+  },
+  {
+    "id": 31,
+    "name": "Emerald Skies",
+    "year": 2009,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "315M"
+  },
+  {
+    "id": 32,
+    "name": "Solar Drift",
+    "year": 2022,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "721M"
+  },
+  {
+    "id": 33,
+    "name": "The Last Signal",
+    "year": 2005,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "191M"
+  },
+  {
+    "id": 34,
+    "name": "Stone and Fire",
+    "year": 1997,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "68M"
+  },
+  {
+    "id": 35,
+    "name": "Bloodlines",
+    "year": 2010,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "234M"
+  },
+  {
+    "id": 36,
+    "name": "The Clockmaker",
+    "year": 2012,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "145M"
+  },
+  {
+    "id": 37,
+    "name": "Neon Vengeance",
+    "year": 2019,
+    "genre": "Action",
+    "imdb": 5.6,
+    "box_office": "422M"
+  },
+  {
+    "id": 38,
+    "name": "Whispers in Tokyo",
+    "year": 2008,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "76M"
+  },
+  {
+    "id": 39,
+    "name": "Parallel Shift",
+    "year": 2014,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "508M"
+  },
+  {
+    "id": 40,
+    "name": "The Painted Truth",
+    "year": 2003,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "183M"
+  },
+  {
+    "id": 41,
+    "name": "Crystal Horizon",
+    "year": 2023,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "378M"
+  },
+  {
+    "id": 42,
+    "name": "Last Echo",
+    "year": 2006,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "138M"
+  },
+  {
+    "id": 43,
+    "name": "Iron Law",
+    "year": 2011,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "198M"
+  },
+  {
+    "id": 44,
+    "name": "Dreams of Dust",
+    "year": 1995,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "61M"
+  },
+  {
+    "id": 45,
+    "name": "The Infinity Loop",
+    "year": 2020,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "682M"
+  },
+  {
+    "id": 46,
+    "name": "Shadow Valley",
+    "year": 2002,
+    "genre": "Thriller",
+    "imdb": 5.6,
+    "box_office": "142M"
+  },
+  {
+    "id": 47,
+    "name": "Veil of Justice",
+    "year": 2018,
+    "genre": "Crime",
+    "imdb": 5.6,
+    "box_office": "229M"
+  },
+  {
+    "id": 48,
+    "name": "Tales of Ember",
+    "year": 2007,
+    "genre": "Animation",
+    "imdb": 5.6,
+    "box_office": "287M"
+  },
+  {
+    "id": 49,
+    "name": "Gravity Pulse",
+    "year": 2021,
+    "genre": "Sci-Fi",
+    "imdb": 5.6,
+    "box_office": "749M"
+  },
+  {
+    "id": 50,
+    "name": "Dawn Over Shadows",
+    "year": 2016,
+    "genre": "Drama",
+    "imdb": 5.6,
+    "box_office": "96M"
   }
 ]

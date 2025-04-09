@@ -1,0 +1,50 @@
+<div class="dellm">
+  <form {{on "submit" this.deleteSelected}}>
+    <div class="del_btnnn">
+      <button type="submit" class="btn delete-btn">🗑️ Delete Selected</button>
+    </div>
+
+    <div class="tb">
+      <table class="movie-table">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>IMDb</th>
+            <th>Box Office</th>
+          </tr>
+        </thead>
+
+        <VerticalCollection
+          @items={{this.model}}
+          @tagName="tbody"
+          @estimateHeight={{50}}
+          @staticHeight={{true}}
+          @bufferSize={{5}}
+          @containerSelector=".tb"
+          as |movie index|
+        >
+          <tr>
+            <td>
+              <input
+                type="checkbox"
+                id="select-movie-{{movie.id}}"
+                {{on "change" (fn this.toggleSelection movie.id)}}
+              />
+            </td>
+            <td>{{index}}</td>
+            <td>{{movie.name}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.imdb}}</td>
+            <td>{{movie.box_office}}</td>
+          </tr>
+        </VerticalCollection>
+
+      </table>
+    </div>
+  </form>
+</div>

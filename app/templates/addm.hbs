@@ -2,6 +2,10 @@
 <div class="form-container">
   <h2><i class="fas fa-film"></i> Add New Movie</h2>
 
+
+  
+
+
   <form class="movie-form" {{on "submit" this.saveMovie}}>
     <div class="form-group">
       <div class="input-icon">
@@ -41,11 +45,12 @@
         <label for="genre">Genre</label>
       </div>
       <select
-        id="genre"
-        {{on "change" (fn (mut this.genre) value="target.value")}}
-        class="form-input"
-        required
-      >
+  id="genre"
+  {{on "change" this.updateGenre}}
+  class="form-input"
+  required
+>
+
         <option value="">Select Genre</option>
         <option value="Action">Action</option>
         <option value="Comedy">Comedy</option>
@@ -90,12 +95,10 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" class="btn submit-btn">
-        <i class="fas fa-save"></i> Save Movie
+      <button type="submit" disabled={{this.isSaving}} class="btn submit-btn">
+        <i class="fas fa-save"></i> {{if this.isSaving "Saving..." "Save Movie"}}
       </button>
-      <LinkTo @route="movies" class="btn cancel-btn">
-        <i class="fas fa-times"></i> Cancel
-      </LinkTo>
+      <button type="button" class="btn cancel-btn"><i class="fas fa-times"></i> Cancel</button>
     </div>
   </form>
 </div>

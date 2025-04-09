@@ -3,6 +3,7 @@
 /* stylelint-disable-next-line prettier/prettier */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -46,12 +47,17 @@ nav ol li a {
   color: white;
   padding: 10px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .logo h2 {
   font-family: Oswald, sans-serif;
+  cursor: pointer;
 }
-
+.logo a{
+  text-decoration: none;
+  color: white;
+}
 .container {
   padding: 20px 8%;
 }
@@ -63,19 +69,18 @@ nav ol li a {
 
 .show-btn button {
   padding: 10px 20px;
-  color: black;
   border-radius: 5px;
   cursor: pointer;
   margin: 20px 0 0;
   transition: all 0.4s ease-in-out;
-  border: 1px solid black;
-  background-color: transparent;
-}
-
-.show-btn button:hover {
   background-color: #e5bc2c;
   color: white;
   border: none;
+}
+
+.show-btn button a{
+  transition: all 0.4s ease-in-out;
+
 }
 
 .show-btn button a {
@@ -87,14 +92,12 @@ nav ol li a {
   color: white;
 }
 
-.boddy {
-  margin: 20px 0;
-}
 
 .tb {
-  margin: 10px 0 0;
-  height: 500px;
-  overflow-y: scroll;
+  height: 70vh;
+  overflow-y: auto;
+  margin: 20px 0;
+  position: relative;
 }
 
 .tb::-webkit-scrollbar {
@@ -123,9 +126,32 @@ nav ol li a {
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
+.movie-row {
+  height: 50px; /* Must match estimateHeight */
+  box-sizing: border-box;
+}
+
+.action-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
 .movie-table th,
 .movie-table td {
   text-align: center;
+}
+
+.movie-table td:nth-child(2) {
+  width: 25%;
+}
+
+.movie-table td:nth-child(1),
+.movie-table td:nth-child(3),
+.movie-table td:nth-child(4),
+.movie-table td:nth-child(5),
+.movie-table td:nth-child(6) {
+  width: 15%;
 }
 
 .movie-table thead {
@@ -145,6 +171,7 @@ nav ol li a {
   cursor: pointer;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .movie-table tbody td {
   padding: 10px 16px;
   font-size: 15px;
@@ -161,13 +188,14 @@ nav ol li a {
   gap: 10px;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.add-btn,
-.delete-btn {
+.add-btn a,
+.delete-btn a {
   text-decoration: none;
+  color: white;
 }
 
 #search-input {
@@ -298,4 +326,134 @@ select.form-input {
   background: #e74c3c;
   color: white;
   text-decoration: none;
+}
+
+.dellm h2 {
+  text-align: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+/* stylelint-disable-next-line selector-class-pattern */
+.del_btnnn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+.edit-form {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #f4f4f4;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.edit-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.edit-form input[type="text"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.edit-form .btn.save-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.edit-form .btn.save-btn:hover {
+  background-color: #218838;
+}
+
+.edit-form {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.flashy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; /* aligns the messages to the right */
+  padding: 1rem;
+}
+.success{
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.danger{
+  background-color: #ff9b9b;
+  border: 1px solid #ff9b9b;
+  color: #571515;
+}
+.custom-flash {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between; /* ensures text on left, close on right */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.875rem;
+}
+
+.custom-flash .message {
+  margin: 0;
+  flex-grow: 1;
+  padding-right: 0.5rem;
+}
+
+.custom-flash .close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.danger i {
+  background: none;
+  color: #571515;}
+
+.success i {
+  background: none;
+  color: #155724;
 }

@@ -10,4 +10,6 @@ Router.map(function () {
   this.route('index', { path: '/' });
   this.route('movie-list');
   this.route('addm');
+  this.route('delm');
+  this.route('editMovie');
 });

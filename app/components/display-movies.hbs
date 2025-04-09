@@ -3,15 +3,18 @@
     <input
       id="search-input"
       type="text"
-      placeholder="Search by movie name"
+      placeholder="Search here..."
       value={{this.title}}
       {{on "input" this.updateTitle}}
     />
-    <button type="button"><LinkTo @route="addm" class="btn add-btn"><i class="fas fa-plus"></i> Add Movie</LinkTo></button>
+    <button type="button" class="btn add-btn"><LinkTo @route="addm" ><i class="fas fa-plus"></i> Add Movie</LinkTo></button>
 
-    <button type="button" class="btn delete-btn">
-      <i class="fas fa-trash"></i> Delete
-    </button>
+    <button type="button" class="btn delete-btn" {{on "click" this.deleteSelected}}>
+  <LinkTo @route="delm"><i class="fas fa-trash"></i> Delete</LinkTo>
+</button>
+
+<LinkTo @route="editMovie" class="btn add-btn">Edit</LinkTo>
+
   </Btns>
 
   <div class="tb">
@@ -24,20 +27,31 @@
           <th>Genre</th>
           <th>IMDb</th>
           <th>Box Office</th>
+          
         </tr>
       </thead>
-      <tbody>
-        {{#each this.filteredMovies as |movie|}}
-          <tr>
+
+        <VerticalCollection
+        @items={{this.filteredMovies}}
+        @tagName="tbody"
+        @estimateHeight={{50}}
+        @staticHeight={{true}}
+        @bufferSize={{5}}
+        @containerSelector=".tb"
+      as |movie|
+    >
+          <tr class="movie-row">
             <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>{{movie.genre}}</td>
             <td>{{movie.imdb}}</td>
             <td>{{movie.box_office}}</td>
+          
+
           </tr>
-        {{/each}}
-      </tbody>
+        </VerticalCollection>
+
     </table>
   </div>
 </div>

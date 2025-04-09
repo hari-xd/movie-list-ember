@@ -1,0 +1,58 @@
+{{! edit-movie.hbs }}
+
+<div class="edit-container">
+
+  {{#if this.selectedMovie}}
+    <div id="edit-form-section">
+      <form {{on "submit" this.saveChanges}}>
+        <div class="edit-form">
+          <label>Name: <input type="text" value={{this.editedFields.name}} {{on "input" (fn this.updateField "name")}} /></label>
+          <label>Year: <input type="text" value={{this.editedFields.year}} {{on "input" (fn this.updateField "year")}} /></label>
+          <label>Genre: <input type="text" value={{this.editedFields.genre}} {{on "input" (fn this.updateField "genre")}} /></label>
+          <label>IMDb: <input type="text" value={{this.editedFields.imdb}} {{on "input" (fn this.updateField "imdb")}} /></label>
+          <label>Box Office: <input type="text" value={{this.editedFields.box_office}} {{on "input" (fn this.updateField "box_office")}} /></label>
+          <button type="submit" class="btn save-btn">💾 Save</button>
+        </div>
+      </form>
+    </div>
+  {{else}}
+    <div class="tb">
+      <table class="movie-table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>IMDb</th>
+            <th>Box Office</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <VerticalCollection
+          @items={{this.movies}}
+          @tagName="tbody"
+          @estimateHeight={{50}}
+          @staticHeight={{true}}
+          @bufferSize={{5}}
+          @containerSelector=".tb"
+          as |movie index|
+        >
+          <tr class="movie-row">
+            <td>{{index}}</td>
+            <td>{{movie.name}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.imdb}}</td>
+            <td>{{movie.box_office}}</td>
+            <td>
+              <button {{on "click" (fn this.editMovie movie)}} class="btn">Edit</button>
+            </td>
+          </tr>
+        </VerticalCollection>
+      </table>
+    </div>
+  {{/if}}
+
+</div>

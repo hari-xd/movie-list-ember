@@ -6,6 +6,26 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'history',
+
+    'vertical-collection': {
+      defaultEstimateHeight: 50,
+      defaultBufferSize: 10,
+      defaultDynamicHeight: false,
+    },
+    'flashMessageDefaults': {
+      // flash message defaults
+      timeout: 2000,
+      extendedTimeout: 1000,
+      priority: 200,
+      sticky: false,
+      showProgress: true,
+
+      // service defaults
+      type: 'info',
+      types: ['success', 'info', 'warning', 'danger'],
+      preventDuplicates: false,
+    },
+
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {
@@ -26,6 +46,11 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['vertical-collection'] = {
+      ...ENV['vertical-collection'],
+      debugRendering: false, // Set to true to see render boundaries
+      logRendering: false,
+    };
   }
 
   if (environment === 'test') {
@@ -42,6 +67,11 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['vertical-collection'] = {
+      ...ENV['vertical-collection'],
+      defaultBufferSize: 15,
+      defaultEstimateHeight: 50,
+    };
   }
 
   return ENV;
