@@ -14,8 +14,8 @@ module.exports = function (environment) {
     },
     'flashMessageDefaults': {
       // flash message defaults
-      timeout: 2000,
-      extendedTimeout: 1000,
+      timeout: 200000,
+      extendedTimeout: 0,
       priority: 200,
       sticky: false,
       showProgress: true,

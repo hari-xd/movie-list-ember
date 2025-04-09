@@ -1,6 +1,4 @@
-/* stylelint-disable-next-line prettier/prettier */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-/* stylelint-disable-next-line prettier/prettier */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
@@ -11,7 +9,7 @@
 
 body {
   background-color: #dcdad2;
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 nav {
@@ -198,6 +196,27 @@ nav ol li a {
   color: white;
 }
 
+.btns a{
+  text-decoration: none;
+  color: white;
+}
+.edit-btn {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
 #search-input {
   padding: 8px 12px;
   font-size: 16px;
@@ -240,8 +259,7 @@ nav ol li a {
 .btn i {
   font-size: 18px;
 }
-
-/* Form Styles */
+/* ---------- Form Container ---------- */
 .form-container {
   max-width: 650px;
   margin: 2rem auto;
@@ -257,6 +275,7 @@ nav ol li a {
   margin-bottom: 2rem;
 }
 
+/* ---------- Form Group ---------- */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -273,6 +292,7 @@ nav ol li a {
   color: #3498db;
 }
 
+/* ---------- Input Fields ---------- */
 .form-input {
   width: 95%;
   padding: 0.8rem;
@@ -287,21 +307,125 @@ nav ol li a {
   outline: none;
 }
 
-select.form-input {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1em;
+/* ---------- Power Select Wrapper ---------- */
+.power-select {
+  width: 95%;
+}
+/* Clean up list styling */
+.ember-power-select-option {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #2c3e50;
+  background-color: white;
+  list-style: none;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
 }
 
+.ember-power-select-option:last-child {
+  border-bottom: none;
+}
+
+/* Highlight hovered or focused option */
+.ember-power-select-option:hover,
+.ember-power-select-option[aria-current="true"] {
+  background-color: #f0f8ff;
+}
+
+.ember-power-select-multiple-option {
+  background-color: transparent; 
+  color: #2c3e50;                
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none; 
+  border: 1px solid #ccc; 
+}
+
+.ember-power-select-trigger-multiple-input {
+  padding: 6px;
+}
+
+.ember-power-select-trigger {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 4px;
+}
+
+.ember-power-select-multiple-option > * {
+  list-style: none !important;
+}
+/* .ember-power-select-multiple-option {
+  /* padding: 4px 8px;
+  border-radius: 16px;
+  background-color: transparent; 
+  border: 1px solid #ccc;  */
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 8px; 
+  align-items: center; 
+} */
+
+.ember-power-select-multiple-remove-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #e74c3c; /* red close button */
+}
+
+.ember-power-select-trigger ul,
+.ember-power-select-trigger li {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Remove the default bullets */
+.ember-power-select-options {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Adjust trigger box */
+.ember-power-select-trigger {
+  background-color: #fff;
+  border: 1px solid #3498db;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 95%;
+}
+
+/* Optional: Placeholder styling */
+.ember-power-select-placeholder {
+  color: #999;
+}
+
+/* Optional: Arrow style */
+.ember-power-select-status-icon {
+  color: #3498db;
+}
+
+
+/* ---------- Form Buttons ---------- */
 .form-actions {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
 }
 
-.btnn {
+.btnn,
+.submit-btn,
+.cancel-btn {
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 5px;
@@ -313,7 +437,9 @@ select.form-input {
   transition: opacity 0.3s ease;
 }
 
-.btnn:hover {
+.btnn:hover,
+.submit-btn:hover,
+.cancel-btn:hover {
   opacity: 0.9;
 }
 
@@ -327,6 +453,7 @@ select.form-input {
   color: white;
   text-decoration: none;
 }
+
 
 .dellm h2 {
   text-align: center;

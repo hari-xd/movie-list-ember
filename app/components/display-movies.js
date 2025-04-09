@@ -6,13 +6,10 @@ import { inject as service } from '@ember/service';
 export default class DisplayMoviesComponent extends Component {
   @tracked title = '';
 
-  @service movie; // Access shared movie data from service
+  @service movie;
 
   get allMovies() {
-    // Prefer service.movies if it has data, otherwise fallback to args.movies
-    return this.movie.movies.length > 0
-      ? this.movie.movies
-      : (this.args.movies ?? []);
+    return this.movie.movies ?? [];
   }
 
   get filteredMovies() {
@@ -25,7 +22,7 @@ export default class DisplayMoviesComponent extends Component {
       (movie) =>
         movie.name.toLowerCase().includes(searchTerm) ||
         String(movie.year).includes(searchTerm) ||
-        movie.genre.toLowerCase().includes(searchTerm) ||
+        String(movie.genre).toLowerCase().includes(searchTerm) ||
         String(movie.imdb).includes(searchTerm) ||
         movie.box_office.toLowerCase().includes(searchTerm),
     );
@@ -34,15 +31,5 @@ export default class DisplayMoviesComponent extends Component {
   @action
   updateTitle(event) {
     this.title = event.target.value;
-  }
-
-  handleAction(movie, event) {
-    let action = event.target.value;
-    if (action === 'edit') {
-      // Handle edit logic
-    } else if (action === 'delete') {
-      // this.deleteMovie(movie);
-      console.log('moive');
-    }
   }
 }

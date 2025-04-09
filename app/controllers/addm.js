@@ -2,6 +2,8 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
+import { tracked } from '@glimmer/tracking';
+
 export default class AddmController extends Controller {
   @service movie;
   @service router;
@@ -15,10 +17,52 @@ export default class AddmController extends Controller {
   boxOffice = '';
   isSaving = false;
 
+  // @action
+  // updateGenre(event) {
+  //   this.genre = event.target.value;
+  // }
+
+  @tracked selectedGenre = null;
+  @tracked genres = ['Action', 'Comedy', 'Drama', 'Sci-Fi', 'Horror', 'Thriller'];
+
   @action
-  updateGenre(event) {
-    this.genre = event.target.value;
+updateGenre(genre) {
+  this.selectedGenre = genre;
+  this.genre = genre; 
+}
+@action
+cancelForm() {
+  this.name = '';
+  this.year = '';
+  this.genre = '';
+  this.selectedGenre = null;
+  this.imdb = '';
+  this.boxOffice = '';
+}
+
+@action
+handleEnterKey(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+
+    let currentIndex = parseInt(event.target.getAttribute('data-input-index'));
+    let nextInput = document.querySelector(`[data-input-index="${currentIndex + 1}"]`);
+
+    if (nextInput && nextInput.classList.contains('ember-power-select-trigger')) {
+      nextInput.querySelector('input')?.focus();
+    } else if (nextInput) {
+      nextInput.focus();
+    } else {
+      // Submit the form if it's the last input
+      console.log('last');
+      this.saveMovie(event);
+      
+    }
   }
+}
+
+
+
 
   @action
   async saveMovie(event) {
@@ -33,8 +77,11 @@ export default class AddmController extends Controller {
 
     this.isSaving = true;
 
+    let movies = this.movie.movies;
+    let lastId = movies.length > 0 ? movies[movies.length - 1].id : 0;
+
     const newMovie = {
-      id: this.movie.movies.length + 1,
+      id: lastId + 1,
       name: this.name.trim(),
       year: this.year,
       genre: this.genre,
@@ -52,4 +99,6 @@ export default class AddmController extends Controller {
       this.isSaving = false;
     }
   }
+
+
 }

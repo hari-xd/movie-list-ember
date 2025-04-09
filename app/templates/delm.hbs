@@ -27,7 +27,7 @@
           @containerSelector=".tb"
           as |movie index|
         >
-          <tr>
+          <tr class="movie-row">
             <td>
               <input
                 type="checkbox"
@@ -35,7 +35,7 @@
                 {{on "change" (fn this.toggleSelection movie.id)}}
               />
             </td>
-            <td>{{index}}</td>
+            <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>{{movie.genre}}</td>

@@ -1,12 +1,8 @@
-{{! app/templates/movies/new.hbs }}
 <div class="form-container">
   <h2><i class="fas fa-film"></i> Add New Movie</h2>
-
-
-  
-
-
   <form class="movie-form" {{on "submit" this.saveMovie}}>
+    
+    <!-- Movie Title -->
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-ticket-alt"></i>
@@ -19,9 +15,12 @@
         required
         placeholder="Enter movie title"
         class="form-input"
+        data-input-index="0"
+        {{on "keydown" this.handleEnterKey}}
       />
     </div>
 
+    <!-- Release Year -->
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-calendar-alt"></i>
@@ -36,31 +35,34 @@
         required
         placeholder="Release year"
         class="form-input"
+        data-input-index="1"
+        {{on "keydown" this.handleEnterKey}}
       />
     </div>
 
+    <!-- Genre (Multi-select) -->
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-theater-masks"></i>
         <label for="genre">Genre</label>
       </div>
-      <select
-  id="genre"
-  {{on "change" this.updateGenre}}
-  class="form-input"
-  required
->
-
-        <option value="">Select Genre</option>
-        <option value="Action">Action</option>
-        <option value="Comedy">Comedy</option>
-        <option value="Drama">Drama</option>
-        <option value="Sci-Fi">Sci-Fi</option>
-        <option value="Horror">Horror</option>
-        <option value="Thriller">Thriller</option>
-      </select>
+      <div class="power-select" data-input-index="2">
+        <PowerSelectMultiple
+          @options={{this.genres}}
+          @selected={{this.selectedGenre}}
+          @onChange={{this.updateGenre}}
+          @placeholder="Select Genre"
+          @triggerClass="form-input"
+          @renderInPlace={{true}}
+          {{on "keydown" this.handleEnterKey}}
+          as |genre|
+        >
+          {{genre}}
+        </PowerSelectMultiple>
+      </div>
     </div>
 
+    <!-- IMDb Rating -->
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-star"></i>
@@ -76,9 +78,12 @@
         required
         placeholder="IMDb rating (0-10)"
         class="form-input"
+        data-input-index="3"
+        {{on "keydown" this.handleEnterKey}}
       />
     </div>
 
+    <!-- Box Office -->
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-dollar-sign"></i>
@@ -91,14 +96,22 @@
         required
         placeholder="Box office earnings (e.g., 100M or 1.5B)"
         class="form-input"
+        data-input-index="4"
+        {{on "keydown" this.handleEnterKey}}
       />
     </div>
 
+    <!-- Action Buttons -->
     <div class="form-actions">
-      <button type="submit" disabled={{this.isSaving}} class="btn submit-btn">
-        <i class="fas fa-save"></i> {{if this.isSaving "Saving..." "Save Movie"}}
+      <button type="submit" {{on "click" (perform this.saveChangesTask)}} disabled={{this.saveChangesTask.isRunning}} class="btn submit-btn">
+        <i class="fas fa-save"></i> Save Changes
       </button>
-      <button type="button" class="btn cancel-btn"><i class="fas fa-times"></i> Cancel</button>
+
+<LinkTo @route="movie-list" class="btn cancel-btn">
+  <i class="fas fa-times"></i> Cancel
+</LinkTo>
+
+
     </div>
   </form>
 </div>
