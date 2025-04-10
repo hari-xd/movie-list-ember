@@ -7,9 +7,9 @@
   padding: 0;
 }
 
-.liquid-child:nth-child(2){
+/* .liquid-child:nth-child(2){
   display: none;
-}
+} */
 
 body {
   background-color: #dcdad2;
@@ -98,8 +98,11 @@ nav ol li a {
 .tb {
   height: 70vh;
   overflow-y: auto;
+  overflow-x: auto;
   margin: 20px 0;
   position: relative;
+  width: 100%;
+  max-width: 100%;
 }
 
 .tb::-webkit-scrollbar {
@@ -122,10 +125,12 @@ nav ol li a {
 }
 
 .movie-table {
-  width: 100%;
+  min-width: 1200px; /* Forces horizontal scroll if screen is small */
+  table-layout: fixed;
   border-collapse: collapse;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  width: 100%;
 }
 
 .movie-row {

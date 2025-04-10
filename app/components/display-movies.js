@@ -17,7 +17,7 @@ export default class DisplayMoviesComponent extends Component {
       return this.allMovies;
     }
 
-    const searchTerm = this.title.toLowerCase();
+    const searchTerm = this.title.trim().toLowerCase();
     return this.allMovies.filter(
       (movie) =>
         movie.name.toLowerCase().includes(searchTerm) ||

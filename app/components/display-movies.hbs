@@ -7,13 +7,9 @@
       value={{this.title}}
       {{on "input" this.updateTitle}}
     />
-    <button type="button" class="btn add-btn"><LinkTo @route="addm" ><i class="fas fa-plus"></i> Add </LinkTo></button>
-
-    <button type="button" class="btn delete-btn" {{on "click" this.deleteSelected}}>
-  <LinkTo @route="delm"><i class="fas fa-trash"></i> Delete</LinkTo>
-</button>
-
-<LinkTo @route="editMovie" class="btn edit-btn"><i class="fa-solid fa-pen"></i> Edit</LinkTo>
+    <LinkTo @route="addm" class="btn add-btn"><i class="fas fa-plus"></i> Add </LinkTo>
+    <LinkTo @route="delm"class="btn delete-btn"><i class="fas fa-trash"></i> Delete</LinkTo>
+    <LinkTo @route="editMovie" class="btn edit-btn"><i class="fa-solid fa-pen"></i> Edit</LinkTo>
 
   </Btns>
 
