@@ -53,15 +53,17 @@ handleEnterKey(event) {
     } else if (nextInput) {
       nextInput.focus();
     } else {
-      // Submit the form if it's the last input
       console.log('last');
-      this.saveMovie(event);
-      
     }
   }
 }
 
-
+@action
+handleEnterKeylast(event){
+  if (event.key === 'Enter'){
+  this.saveMovie(event);
+}
+}
 
 
   @action

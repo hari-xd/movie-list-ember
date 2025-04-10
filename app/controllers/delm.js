@@ -33,4 +33,12 @@ export default class DelmController extends Controller {
     this.flashMessages.danger('Movie deleted successfully');
     this.router.transitionTo('movie-list');
   }
+
+  @action
+  handleDeletKey(event){
+  if (event.key === 'Enter'){
+  this.saveMovie(event);
+  this.deleteSelected(event)
+}
+}
 }

@@ -6,11 +6,11 @@
     <div id="edit-form-section">
       <form {{on "submit" this.saveChanges}}>
         <div class="edit-form">
-          <label>Name: <input type="text" value={{this.editedFields.name}} {{on "input" (fn this.updateField "name")}} /></label>
-          <label>Year: <input type="text" value={{this.editedFields.year}} {{on "input" (fn this.updateField "year")}} /></label>
-          <label>Genre: <input type="text" value={{this.editedFields.genre}} {{on "input" (fn this.updateField "genre")}} /></label>
-          <label>IMDb: <input type="text" value={{this.editedFields.imdb}} {{on "input" (fn this.updateField "imdb")}} /></label>
-          <label>Box Office: <input type="text" value={{this.editedFields.box_office}} {{on "input" (fn this.updateField "box_office")}} /></label>
+          <label>Name: <input type="text" value={{this.editedFields.name}} {{on "input" (fn this.updateField "name")}} required /></label>
+          <label>Year: <input type="text" value={{this.editedFields.year}} {{on "input" (fn this.updateField "year")}} required/></label>
+          <label>Genre: <input type="text" value={{this.editedFields.genre}} {{on "input" (fn this.updateField "genre")}} required/></label>
+          <label>IMDb: <input type="text" value={{this.editedFields.imdb}} {{on "input" (fn this.updateField "imdb")}} required/></label>
+          <label>Box Office: <input type="text" value={{this.editedFields.box_office}} {{on "input" (fn this.updateField "box_office")}} required/></label>
           <button type="submit" class="btn save-btn">💾 Save</button>
         </div>
       </form>

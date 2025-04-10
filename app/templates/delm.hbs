@@ -1,5 +1,6 @@
 <div class="dellm">
-  <form {{on "submit" this.deleteSelected}}>
+  <form {{on "submit" this.deleteSelected}}
+  {{on "keydown" this.handleDeletKey}}>
     <div class="del_btnnn">
       <button type="submit" class="btn delete-btn">🗑️ Delete Selected</button>
     </div>
