@@ -11,15 +11,19 @@ export default class MovieService extends Service {
 
   async loadInitialMovies() {
     try {
-      const saved = localStorage.getItem('movies');
-      if (saved) {
-        this.movies = JSON.parse(saved);
-      } else {
-        const response = await fetch('/assets/data/data.json');
+      // const saved = localStorage.getItem('movies');
+      // if (saved) {
+      //   this.movies = JSON.parse(saved);
+      // } else {
+      //   const response = await fetch('/assets/data/data.json');
+      //   const movies = await response.json();
+      //   this.movies = movies;
+      //   localStorage.setItem('movies', JSON.stringify(movies));
+      // }
+      const response = await fetch('/assets/data/data.json');
         const movies = await response.json();
         this.movies = movies;
-        localStorage.setItem('movies', JSON.stringify(movies));
-      }
+        // localStorage.setItem('movies', JSON.stringify(movies));
     } catch (error) {
       console.error('Failed to load movies:', error);
     }

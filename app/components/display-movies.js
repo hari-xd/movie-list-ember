@@ -9,7 +9,7 @@ export default class DisplayMoviesComponent extends Component {
 
   @service movie;
 
-  batchSize = this.allMovies.length - 1;
+  batchSize = this.allMovies.length-1;
 
   constructor() {
     super(...arguments);
@@ -48,9 +48,8 @@ export default class DisplayMoviesComponent extends Component {
   @action
   firstReachedCallback(movie, index) {
     console.log('First visible movie:', movie, 'at index:', index);
-
-    // Only load more if we're not already showing all movies
     const firstIndex = this.movie.movies.findIndex((m) => m.id === movie.id);
+    console.log(firstIndex);
 
     if (firstIndex > 0) {
       const start = Math.max(0, firstIndex - this.batchSize);
@@ -64,6 +63,8 @@ export default class DisplayMoviesComponent extends Component {
       const loopedStart = Math.max(0, total - this.batchSize);
       const looped = this.movie.movies.slice(loopedStart, total);
       this.displayedMovies = [...looped, ...this.displayedMovies];
+      console.log(this.displayedMovies.length);
+
     }
   }
 
@@ -77,8 +78,8 @@ lastReachedCallback(movie, index) {
   let end = lastIndex + 1 + this.batchSize;
 
   if (end <= total) {
-    const newItems = this.movie.movies.slice(lastIndex + 1, end);
-    this.displayedMovies = [...this.displayedMovies, ...newItems];
+    // const newItems = this.movie.movies.slice(lastIndex + 1, end);
+    // this.displayedMovies = [...this.displayedMovies, ...newItems];
   } else {
     // Loop back to start
     const remaining = this.movie.movies.slice(lastIndex + 1, total);
