@@ -5,7 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import { task } from 'ember-concurrency';
 
 export default class AddmController extends Controller {
-  @tracked isInitialLoading = true;
+  // @tracked isInitialLoading = true;
 
   @service movie;
   @service router;
