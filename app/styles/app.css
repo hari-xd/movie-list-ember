@@ -648,6 +648,7 @@ justify-content: center;
     font-size: 14px;
   }
   .btns{
+    flex-direction: column;
     gap: 5px;
   }
   
