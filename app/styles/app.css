@@ -647,6 +647,9 @@ justify-content: center;
     gap: 20px;
     font-size: 14px;
   }
+  .btns{
+    gap: 5px;
+  }
   
   #search-input {
     width: 150px;
