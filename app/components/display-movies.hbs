@@ -10,6 +10,8 @@
     <LinkTo @route="addm" class="btn add-btn"><i class="fas fa-plus"></i> Add </LinkTo>
     <LinkTo @route="delm"class="btn delete-btn"><i class="fas fa-trash"></i> Delete</LinkTo>
     <LinkTo @route="editMovie" class="btn edit-btn"><i class="fa-solid fa-pen"></i> Edit</LinkTo>
+    <LinkTo @route="fetch-movies" class="btn add-btn"><i class="fas fa-tv"></i> Fetch </LinkTo>
+
 
   </Btns>
 
@@ -29,14 +31,15 @@
 
         <tbody>
           <VerticalCollection
-          @items={{this.filteredMovies}}
-          @containerSelector=".tb"
-          @estimateHeight={{50}}
-          @staticHeight={{false}}
-          @bufferSize={{5}}
-          @lastReached={{this.lastReachedCallback}}
-          as |movie index|
-        >
+  @items={{this.filteredMovies}}
+  @containerSelector=".tb"
+  @estimateHeight={{50}}
+  @staticHeight={{false}}
+  @bufferSize={{5}}
+  @firstReached={{this.firstReachedCallback}}
+  @lastReached={{this.lastReachedCallback}}
+  as |movie index|
+>
           <tr class="movie-row">
             <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
@@ -44,8 +47,6 @@
             <td>{{movie.genre}}</td>
             <td>{{movie.imdb}}</td>
             <td>{{movie.box_office}}</td>
-          
-
           </tr>
         </VerticalCollection>
         </tbody>

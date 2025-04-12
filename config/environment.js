@@ -12,7 +12,7 @@ module.exports = function (environment) {
       defaultBufferSize: 10,
       defaultDynamicHeight: false,
     },
-    'flashMessageDefaults': {
+    flashMessageDefaults: {
       // flash message defaults
       timeout: 200000,
       extendedTimeout: 0,

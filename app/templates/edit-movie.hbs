@@ -40,14 +40,17 @@
           as |movie index|
         >
           <tr class="movie-row">
-            <td>{{index}}</td>
+            <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>{{movie.genre}}</td>
             <td>{{movie.imdb}}</td>
             <td>{{movie.box_office}}</td>
             <td>
-              <button {{on "click" (fn this.editMovie movie)}} class="btn">Edit</button>
+              <div class="editt">
+                  <button class="btn" type="button" {{on "click" (fn this.editMovie movie)}}>Edit</button>
+
+              </div>       
             </td>
           </tr>
         </VerticalCollection>

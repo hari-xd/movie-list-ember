@@ -4,11 +4,8 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { task } from 'ember-concurrency';
 
-
 export default class AddmController extends Controller {
   @tracked isInitialLoading = true;
-
-
 
   @service movie;
   @service router;
@@ -22,12 +19,19 @@ export default class AddmController extends Controller {
   boxOffice = '';
 
   @tracked selectedGenre = null;
-  @tracked genres = ['Action', 'Comedy', 'Drama', 'Sci-Fi', 'Horror', 'Thriller'];
+  @tracked genres = [
+    'Action',
+    'Comedy',
+    'Drama',
+    'Sci-Fi',
+    'Horror',
+    'Thriller',
+  ];
 
   @action
   updateGenre(genre) {
     this.selectedGenre = genre;
-    this.genre = genre; 
+    this.genre = genre;
   }
 
   @action
@@ -45,10 +49,17 @@ export default class AddmController extends Controller {
     if (event.key === 'Enter') {
       event.preventDefault();
 
-      let currentIndex = parseInt(event.target.getAttribute('data-input-index'));
-      let nextInput = document.querySelector(`[data-input-index="${currentIndex + 1}"]`);
+      let currentIndex = parseInt(
+        event.target.getAttribute('data-input-index'),
+      );
+      let nextInput = document.querySelector(
+        `[data-input-index="${currentIndex + 1}"]`,
+      );
 
-      if (nextInput && nextInput.classList.contains('ember-power-select-trigger')) {
+      if (
+        nextInput &&
+        nextInput.classList.contains('ember-power-select-trigger')
+      ) {
         nextInput.querySelector('input')?.focus();
       } else if (nextInput) {
         nextInput.focus();
@@ -68,7 +79,13 @@ export default class AddmController extends Controller {
   @(task(function* (event) {
     if (event) event.preventDefault();
 
-    if (!this.name.trim() || !this.year || !this.genre || !this.imdb || !this.boxOffice) {
+    if (
+      !this.name.trim() ||
+      !this.year ||
+      !this.genre ||
+      !this.imdb ||
+      !this.boxOffice
+    ) {
       this.flashMessages.warning('Please fill out all required fields!');
       return;
     }
@@ -92,5 +109,6 @@ export default class AddmController extends Controller {
     } catch (error) {
       this.flashMessages.danger(`Error saving movie: ${error.message}`);
     }
-  }).drop()) addMovieTask;
+  }).drop())
+  addMovieTask;
 }

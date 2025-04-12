@@ -2,7 +2,7 @@
   <h2><i class="fas fa-film"></i> Add New Movie</h2>
   <form class="movie-form" {{on "submit" (perform this.addMovieTask)}}>
 
-    <!-- Movie Title -->
+    {{!-- Movie Title --}}
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-ticket-alt"></i>
@@ -20,7 +20,7 @@
       />
     </div>
 
-    <!-- Release Year -->
+    {{!-- Release Year --}}
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-calendar-alt"></i>
@@ -40,7 +40,7 @@
       />
     </div>
 
-    <!-- Genre (Multi-select) -->
+    {{!-- Genre (Multi-select) --}}
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-theater-masks"></i>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <!-- IMDb Rating -->
+    {{!-- IMDb Rating --}}
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-star"></i>
@@ -83,7 +83,7 @@
       />
     </div>
 
-    <!-- Box Office -->
+    {{!-- Box Office --}}
     <div class="form-group">
       <div class="input-icon">
         <i class="fas fa-dollar-sign"></i>
@@ -101,7 +101,7 @@
       />
     </div>
 
-    <!-- Action Buttons -->
+    {{!-- Action Buttons --}}
     <div class="form-actions">
       <button
         type="submit"

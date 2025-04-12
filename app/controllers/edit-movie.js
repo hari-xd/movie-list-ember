@@ -14,7 +14,7 @@ export default class EditMovieController extends Controller {
     year: '',
     genre: '',
     imdb: '',
-    box_office: ''
+    box_office: '',
   };
 
   get movies() {
@@ -30,7 +30,7 @@ export default class EditMovieController extends Controller {
       year: movie.year,
       genre: movie.genre,
       imdb: movie.imdb,
-      box_office: movie.box_office
+      box_office: movie.box_office,
     };
   }
 
@@ -53,17 +53,16 @@ export default class EditMovieController extends Controller {
   }
 
   @action
-editMovie(movie) {
-  this.selectedMovie = movie;
-  this.editedFields = { ...movie };
+  editMovie(movie) {
+    this.selectedMovie = movie;
+    this.editedFields = { ...movie };
 
-  // Scroll to the form smoothly
-  setTimeout(() => {
-    const formEl = document.getElementById('edit-form-section');
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, 50); // Slight delay to ensure DOM update
-}
-
+    // Scroll to the form smoothly
+    setTimeout(() => {
+      const formEl = document.getElementById('edit-form-section');
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50); // Slight delay to ensure DOM update
+  }
 }

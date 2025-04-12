@@ -7,7 +7,7 @@ export default class DelmController extends Controller {
   @service movie;
   @service router;
   @service flashMessages;
-  
+
   @tracked selectedIds = new Set(); // Store selected movie IDs
 
   get movies() {
@@ -35,10 +35,10 @@ export default class DelmController extends Controller {
   }
 
   @action
-  handleDeletKey(event){
-  if (event.key === 'Enter'){
-  this.saveMovie(event);
-  this.deleteSelected(event)
-}
-}
+  handleDeletKey(event) {
+    if (event.key === 'Enter') {
+      this.saveMovie(event);
+      this.deleteSelected(event);
+    }
+  }
 }

@@ -12,4 +12,5 @@ Router.map(function () {
   this.route('addm');
   this.route('delm');
   this.route('editMovie');
+  this.route('fetch-movies');
 });

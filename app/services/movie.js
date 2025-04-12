@@ -28,6 +28,9 @@ export default class MovieService extends Service {
   saveMovies() {
     localStorage.setItem('movies', JSON.stringify(this.movies));
   }
+  setMovies(data) {
+    this.movies = data;
+  }
 
   addMovie(movie) {
     this.movies = [...this.movies, movie];
