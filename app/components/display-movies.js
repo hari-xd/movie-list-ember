@@ -48,10 +48,7 @@ export default class DisplayMoviesComponent extends Component {
 
   @action
   firstReachedCallback(movie, index) {
-    console.log('First visible movie:', movie, 'at index:', index);
     const firstIndex = this.movie.movies.findIndex((m) => m.id === movie.id);
-    console.log(firstIndex);
-
     if (firstIndex > 0) {
       const start = Math.max(0, firstIndex - this.batchSize);
       const newItems = this.movie.movies.slice(start, firstIndex);
