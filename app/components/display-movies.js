@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { onKey, activated } from 'ember-keyboard';
 
 export default class DisplayMoviesComponent extends Component {
   @tracked title = '';
@@ -88,4 +89,29 @@ lastReachedCallback(movie, index) {
   }
 }
 
+@service router;
+keyboardActivated = true;
+
+@onKey('ctrl+a')
+addShortcut = (event) => {
+  event.preventDefault();
+  this.router.transitionTo('addm');
+};
+@onKey('ctrl+d')
+deleteShortcut = (e) => {
+  e.preventDefault();
+  this.router.transitionTo('delm');
+};
+
+@onKey('ctrl+e')
+editShortcut = (e) => {
+  e.preventDefault();
+  this.router.transitionTo('editMovie');
+};
+
+@onKey('ctrl+f')
+fetchShortcut = (e) => {
+  e.preventDefault();
+  this.router.transitionTo('fetch-movies');
+};
 }

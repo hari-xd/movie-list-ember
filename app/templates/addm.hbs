@@ -48,6 +48,8 @@
       </div>
       <div class="power-select" data-input-index="2">
         <PowerSelectMultiple
+          @searchEnabled={{true}}
+          @search={{this.searchGenre}}
           @options={{this.genres}}
           @selected={{this.selectedGenre}}
           @onChange={{this.updateGenre}}

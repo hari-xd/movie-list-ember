@@ -7,10 +7,32 @@
       value={{this.title}}
       {{on "input" this.updateTitle}}
     />
-    <LinkTo @route="addm" class="btn add-btn"><i class="fas fa-plus"></i> Add </LinkTo>
-    <LinkTo @route="delm"class="btn delete-btn"><i class="fas fa-trash"></i> Delete</LinkTo>
-    <LinkTo @route="editMovie" class="btn edit-btn"><i class="fa-solid fa-pen"></i> Edit</LinkTo>
-    <LinkTo @route="fetch-movies" class="btn add-btn"><i class="fas fa-tv"></i> Fetch </LinkTo>
+<div {{on-key 'ctrl+a' this.addShortcut}} tabindex="0" class="keyboard-shortcuts">
+  <LinkTo @route="addm" class="btn add-btn">
+    <i class="fas fa-plus"></i> Add
+  </LinkTo>
+</div>
+
+   <!-- DELETE -->
+<div {{on-key 'ctrl+d' this.deleteShortcut}} tabindex="0" class="keyboard-shortcuts">
+  <LinkTo @route="delm" class="btn delete-btn">
+    <i class="fas fa-trash"></i> Delete
+  </LinkTo>
+</div>
+
+<!-- EDIT -->
+<div {{on-key 'ctrl+e' this.editShortcut}} tabindex="0" class="keyboard-shortcuts">
+  <LinkTo @route="editMovie" class="btn edit-btn">
+    <i class="fa-solid fa-pen"></i> Edit
+  </LinkTo>
+</div>
+
+<!-- FETCH -->
+<div {{on-key 'ctrl+f' this.fetchShortcut}} tabindex="0" class="keyboard-shortcuts">
+  <LinkTo @route="fetch-movies" class="btn fetchh-btn">
+    <i class="fas fa-tv"></i> Fetch
+  </LinkTo>
+</div>
 
 
   </Btns>

@@ -20,12 +20,14 @@ export default class AddmController extends Controller {
 
   @tracked selectedGenre = null;
   @tracked genres = [
-    'Action',
-    'Comedy',
-    'Drama',
-    'Sci-Fi',
-    'Horror',
-    'Thriller',
+    {
+      groupName: 'Popular',
+      options: ['Action', 'Comedy', 'Drama']
+    },
+    {
+      groupName: 'Niche',
+      options: ['Sci-Fi', 'Horror', 'Thriller']
+    }
   ];
 
   @action

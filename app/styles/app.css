@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -218,6 +217,10 @@ justify-content: center;
   text-decoration: none;
   color: white;
 }
+.fetchh-btn {
+  background-color: #00bcd4;
+  color: white;
+}
 
 .btns a {
   text-decoration: none;
@@ -358,114 +361,56 @@ justify-content: center;
   border-color: #3498db;
   outline: none;
 }
-
-/* ---------- Power Select Wrapper ---------- */
-.power-select {
-  width: 95%;
-}
-/* Clean up list styling */
-.ember-power-select-option {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  color: #2c3e50;
-  background-color: white;
-  list-style: none;
-  border-bottom: 1px solid #eee;
-  transition: background 0.2s ease;
-}
-
-.ember-power-select-option:last-child {
-  border-bottom: none;
-}
-
-/* Highlight hovered or focused option */
-.ember-power-select-option:hover,
-.ember-power-select-option[aria-current="true"] {
-  background-color: #f0f8ff;
+.ember-power-select-multiple-options li.ember-power-select-trigger-multiple-input-container input{
+  padding: 10px 0;
 }
 
 .ember-power-select-multiple-option {
-  background-color: transparent;
-  color: #2c3e50;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  list-style: none;
-  border: 1px solid #ccc;
-}
-
-.ember-power-select-trigger-multiple-input {
-  padding: 6px;
-}
-
-.ember-power-select-trigger {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  min-height: 40px;
-  padding: 4px;
-}
-
-.ember-power-select-multiple-option > * {
-  list-style: none !important;
-}
-/* .ember-power-select-multiple-option {
-  /* padding: 4px 8px;
+  gap: 6px;
+  padding: 4px 10px;
+  margin: 3px;
   border-radius: 16px;
-  background-color: transparent; 
-  border: 1px solid #ccc;  */
-/* display: flex;
-  flex-wrap: wrap;
-  gap: 8px; 
-  align-items: center; 
-} */
+  background-color: #ffffff;
+  color: #1f2937; /* slate-800 */
+  border: 1px solid #cbd5e1; /* slate-300 */
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease;
+}
+.ember-power-select-multiple-option{
+  background-color: white;
+}
+.ember-power-select-multiple-option:hover {
+  background-color: #e2e8f0; /* hover */
+}
 
 .ember-power-select-multiple-remove-btn {
-  margin-left: 8px;
-  cursor: pointer;
   font-weight: bold;
-  color: #e74c3c; /* red close button */
+  cursor: pointer;
+  color: #e11d48; /* rose-600 */
+  margin-left: 4px;
 }
 
-.ember-power-select-trigger ul,
-.ember-power-select-trigger li {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+/* Apply animation when dropdown opens */
+.ember-power-select-dropdown {
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: dropdownFadeIn 0.25s ease-out forwards;
 }
 
-/* Remove the default bullets */
-.ember-power-select-options {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Keyframes */
+@keyframes dropdownFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Optional: Adjust trigger box */
-.ember-power-select-trigger {
-  background-color: #fff;
-  border: 1px solid #3498db;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 95%;
-}
 
-/* Optional: Placeholder styling */
-.ember-power-select-placeholder {
-  color: #999;
-}
-
-/* Optional: Arrow style */
-.ember-power-select-status-icon {
-  color: #3498db;
-}
+/* Trigger focus-within styling (NEW) */
 
 /* ---------- Form Buttons ---------- */
 .form-actions {
