@@ -1,26 +1,33 @@
 <div class="fetch-btn">
-    <div class="btn1">
-    <button class="btn add-btn" {{on "click" this.fetchMovies}}>Fetch Movies 1</button>
+  <!-- Button 1: Traditional Fetch -->
+  <div class="btn1">
+    <button class="btn add-btn" {{on "click" this.fetchMovies}}>
+      Fetch Movies 1
+    </button>
 
-<ul>
-  {{#each this.topFiveTraditional as |movie|}}
-    <li>{{movie.name}}</li>
-  {{/each}}
-</ul>
-</div>
-<div class="btn2">
-    
-<button class="btn add-btn" {{on "click" this.fetchMoviesModern}}>Fetch Movies 2</button>
+    <ul>
+      {{#each this.topFiveTraditional as |movie|}}
+        <li>{{movie.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
 
-{{#if this.isLoading}}
-  <p>Loading movies…</p>
-{{else}}
+  <!-- Button 2: Modern Fetch with Ember Concurrency -->
+  <div class="btn2">
+    <button class="btn add-btn" {{on "click" this.fetchMoviesModernTask.perform}}>Fetch Movies 2</button>
+
+{{#if this.fetchMoviesModernTask.isRunning}}
+  <p>Loading movies...</p>
+{{/if}}
+
+{{#if this.fetchMoviesModernTask.lastSuccessful}}
   <ul>
-    {{#each this.topFiveModern as |movie|}}
+    {{#each this.topFiveFromTask as |movie|}}
       <li>{{movie.name}}</li>
     {{/each}}
   </ul>
 {{/if}}
-</div>
 
+
+  </div>
 </div>

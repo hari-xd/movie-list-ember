@@ -6,8 +6,8 @@ import { task, timeout } from 'ember-concurrency';
 export default class FetchMoviesController extends Controller {
   @tracked moviesTraditional = [];
   @tracked moviesModern = [];
-  @tracked isLoading = false;
 
+  // Action for Traditional Fetch (using async/await)
   @action
   async fetchMovies() {
     const response = await fetch('/assets/data/data.json');
@@ -15,19 +15,17 @@ export default class FetchMoviesController extends Controller {
     this.moviesTraditional = data;
   }
 
-  @(task(function* () {
-    this.isLoading = true;
-  
-    yield timeout(1000); // Wait 1 second
+  // Ember Concurrency task for Modern Fetch (button 2)
+  @task(function* () {
+    yield timeout(1000);
     const response = yield fetch('/assets/data/data.json');
     const data = yield response.json();
-  
-    this.moviesModern = data;
-    this.isLoading = false;
-  }).drop())
+    return data;
+  }).enqueue()
   fetchMoviesModernTask;
   
 
+  // Getters for top 5 movies, randomizing the order
   get topFiveTraditional() {
     return [...this.moviesTraditional].sort(() => Math.random() - 0.5).slice(0, 5);
   }
@@ -35,7 +33,13 @@ export default class FetchMoviesController extends Controller {
   get topFiveModern() {
     return [...this.moviesModern].sort(() => Math.random() - 0.5).slice(0, 5);
   }
+  get topFiveFromTask() {
+    const data = this.fetchMoviesModernTask.lastSuccessful?.value ?? [];
+    return [...data].sort(() => Math.random() - 0.5).slice(0, 5);
+  }
+  
 
+  // Action to trigger the modern fetch task
   @action
   fetchMoviesModern() {
     this.fetchMoviesModernTask.perform();
