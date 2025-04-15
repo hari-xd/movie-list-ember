@@ -24,15 +24,15 @@ export default class FetchMoviesController extends Controller {
   }).enqueue()
   fetchMoviesModernTask;
   
-
+  // get topFiveModern() {
+  //   return [...this.moviesModern].sort(() => Math.random() - 0.5).slice(0, 5);
+  // }
   // Getters for top 5 movies, randomizing the order
   get topFiveTraditional() {
     return [...this.moviesTraditional].sort(() => Math.random() - 0.5).slice(0, 5);
   }
 
-  get topFiveModern() {
-    return [...this.moviesModern].sort(() => Math.random() - 0.5).slice(0, 5);
-  }
+
   get topFiveFromTask() {
     const data = this.fetchMoviesModernTask.lastSuccessful?.value ?? [];
     return [...data].sort(() => Math.random() - 0.5).slice(0, 5);

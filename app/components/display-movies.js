@@ -48,27 +48,26 @@ export default class DisplayMoviesComponent extends Component {
 
   @action
   firstReachedCallback(movie, index) {
+    console.log(index);
     const firstIndex = this.movie.movies.findIndex((m) => m.id === movie.id);
     if (firstIndex > 0) {
       const start = Math.max(0, firstIndex - this.batchSize);
       const newItems = this.movie.movies.slice(start, firstIndex);
 
       this.displayedMovies = [...newItems, ...this.displayedMovies];
-      console.log(this.displayedMovies.length);
+      // console.log(this.displayedMovies.length);
     } else {
       // Loop to end of the list if at the top
       const total = this.movie.movies.length;
       const loopedStart = Math.max(0, total - this.batchSize);
       const looped = this.movie.movies.slice(loopedStart, total);
       this.displayedMovies = [...looped, ...this.displayedMovies];
-      console.log(this.displayedMovies.length);
-
     }
   }
 
   @action
 lastReachedCallback(movie, index) {
-  console.log('Last visible movie:', movie, 'at index:', index);
+  // console.log('Last visible movie:', movie, 'at index:', index);
 
   const lastIndex = this.movie.movies.findIndex((m) => m.id === movie.id);
   const total = this.movie.movies.length;

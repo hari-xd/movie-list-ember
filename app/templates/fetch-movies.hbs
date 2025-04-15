@@ -6,9 +6,11 @@
     </button>
 
     <ul>
+      {{#if (gt (get this.topFiveTraditional "length") 0)}}
       {{#each this.topFiveTraditional as |movie|}}
         <li>{{movie.name}}</li>
       {{/each}}
+      {{/if}}
     </ul>
   </div>
 
@@ -27,7 +29,5 @@
     {{/each}}
   </ul>
 {{/if}}
-
-
   </div>
 </div>
