@@ -1,11 +1,13 @@
 <div class="boddy">
   <Btns>
     <input
+    class="searchMovies"
       id="search-input"
       type="text"
       placeholder="Search here..."
       value={{this.title}}
       {{on "input" this.updateTitle}}
+      {{on "click" this.toggleSearchTerm}}
     />
 <div {{on-key 'ctrl+a' this.addShortcut}}  class="keyboard-shortcuts">
   <LinkTo @route="addm" class="btn add-btn">
@@ -13,21 +15,21 @@
   </LinkTo>
 </div>
 
-   <!-- DELETE -->
+   {{!-- DELETE --}}
 <div {{on-key 'ctrl+d' this.deleteShortcut}} class="keyboard-shortcuts">
   <LinkTo @route="delm" class="btn delete-btn">
     <i class="fas fa-trash"></i> Delete
   </LinkTo>
 </div>
 
-<!-- EDIT -->
+{{!-- EDIT --}}
 <div {{on-key 'ctrl+e' this.editShortcut}} class="keyboard-shortcuts">
   <LinkTo @route="editMovie" class="btn edit-btn">
     <i class="fa-solid fa-pen"></i> Edit
   </LinkTo>
 </div>
 
-<!-- FETCH -->
+{{!-- FETCH --}}
 <div {{on-key 'ctrl+f' this.fetchShortcut}} class="keyboard-shortcuts">
   <LinkTo @route="fetch-movies" class="btn fetchh-btn">
     <i class="fas fa-tv"></i> Fetch
@@ -37,40 +39,111 @@
 
   </Btns>
 
+{{#if this.searchTerm }}
+  <div class="checkbox-group" {{on-click-outside this.closeSearchTerms exceptSelector=".checkbox-group,.searchMovies,.btns"}}>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Name" 
+      checked={{includes this.selectedFields "Name"}} 
+      {{on "change" this.toggleField}}
+    > Name
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Year" 
+      checked={{includes this.selectedFields "Year"}} 
+      {{on "change" this.toggleField}}
+    > Year
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Genre" 
+      checked={{includes this.selectedFields "Genre"}} 
+      {{on "change" this.toggleField}}
+    > Genre
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="IMDb" 
+      checked={{includes this.selectedFields "IMDb"}} 
+      {{on "change" this.toggleField}}
+    > IMDb
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Box_Office" 
+      checked={{includes this.selectedFields "Box_Office"}} 
+      {{on "change" this.toggleField}}
+    > Box Office
+  </label>
+</div>
+{{/if}}
+
+
+
   <div class="tb">
     <table class="movie-table">
       <thead>
         <tr>
-          <th>S.No</th>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Genre</th>
-          <th>IMDb</th>
-          <th>Box Office</th>
+          <th><div class="table-head">
+            <p>S.No</p><i class="fa-solid fa-caret-down"></i>
+          </div></th>
+          <th {{on "click" this.nameClicked}}>
+            <div class="table-head" > 
+            <p>Name</p> <i 
+      class="fa-solid {{if (eq this.caretDirection 'up') 'fa-caret-up' 'fa-caret-down'}}"
+      
+    ></i>
+          </div></th>
+          <th><div class="table-head">
+            <p>Year</p><i class="fa-solid fa-caret-down"></i>
+          </div></th>
+          <th><div class="table-head">
+            <p>Genre</p><i class="fa-solid fa-caret-down"></i>
+          </div></th>
+          <th><div class="table-head">
+            <p>IMDb</p><i class="fa-solid fa-caret-down"></i>
+          </div></th>
+          <th><div class="table-head">
+            <p>Box Office</p><i class="fa-solid fa-caret-down"></i>
+          </div></th>
           
         </tr>
       </thead>
 
         <tbody>
+          {{#if this.filteredMovies.length}}
+
           <VerticalCollection
-  @items={{this.filteredMovies}}
-  @containerSelector=".tb"
-  @estimateHeight={{50}}
-  @staticHeight={{true}}
-  @bufferSize={{3}}
-  @firstReached={{this.firstReachedCallback}}
-  @lastReached={{this.lastReachedCallback}}
-  as |movie index|
->
+          @items={{this.filteredMovies}}
+          @containerSelector=".tb"
+          @estimateHeight={{50}}
+          @staticHeight={{true}}
+          @bufferSize={{3}}
+          @firstReached={{this.firstReachedCallback}}
+          @lastReached={{this.lastReachedCallback}}
+          as |movie index|
+        >
           <tr class="movie-row">
             <td>{{movie.id}}</td>
             <td>{{movie.name}}</td>
             <td>{{movie.year}}</td>
             <td>{{movie.genre}}</td>
             <td>{{movie.imdb}}</td>
-            <td>{{movie.box_office}}</td>
+            <td>{{movie.box_office}}M</td>
           </tr>
+
+
         </VerticalCollection>
+        {{else}}
+          <tr><td colspan="6">No movies found</td></tr>
+
+        {{/if}}
         </tbody>
 
     </table>

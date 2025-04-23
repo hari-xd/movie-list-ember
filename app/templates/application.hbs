@@ -5,24 +5,22 @@
   <div class="flashy">
     {{#each this.flashMessages.queue as |flash|}}
       <FlashMessage @flash={{flash}} as |component flash close|>
-        <div 
-          class="custom-flash {{flash.type}}" 
-          {{on-click-outside close exceptSelector=".custom-flash, .close-btn"}}
+        <div
+          class="custom-flash {{flash.type}}"
+          {{on-click-outside close exceptSelector=".custom-flash, .close-btn,.message"}}
         >
           <p class="message">{{flash.message}}</p>
 
-          <button type="button" class="close-btn" {{on "click" close}}>
+          <button type="button" class="close-btn" {{on "click" (fn this.close flash)}}>
             <i class="fas fa-times"></i>
           </button>
         </div>
       </FlashMessage>
+
     {{/each}}
   </div>
 
-
-  
   <LiquidOutlet />
-  
 </Container>
 
 <BasicDropdownWormhole />

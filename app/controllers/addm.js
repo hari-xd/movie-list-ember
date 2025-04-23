@@ -22,12 +22,12 @@ export default class AddmController extends Controller {
   @tracked genres = [
     {
       groupName: 'Popular',
-      options: ['Action', 'Comedy', 'Drama']
+      options: ['Action', 'Comedy', 'Drama'],
     },
     {
       groupName: 'Niche',
-      options: ['Sci-Fi', 'Horror', 'Thriller']
-    }
+      options: ['Sci-Fi', 'Horror', 'Thriller'],
+    },
   ];
 
   @action

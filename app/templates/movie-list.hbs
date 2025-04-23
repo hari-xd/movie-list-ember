@@ -1,1 +1,179 @@
-<DisplayMovies @movies={{this.model}} />
+{{!-- <DisplayMovies @movies={{this.model.movies}} /> --}}
+{{!-- <EmberTable as |t|>
+  <t.head @columns={{this.model.columns}} />
+  <t.body @rows={{this.model.movies}} />
+</EmberTable> --}}
+
+  <Btns>
+    <input
+    class="searchMovies"
+      id="search-input"
+      type="text"
+      placeholder="Search here..."
+      value={{this.title}}
+      {{on "input" this.updateTitle}}
+      {{on "click" this.toggleSearchTerm}}
+    />
+<div {{on-key 'ctrl+a' this.addShortcut}}  class="keyboard-shortcuts">
+  <LinkTo @route="addm" class="btn add-btn">
+    <i class="fas fa-plus"></i> Add
+  </LinkTo>
+</div>
+
+   {{!-- DELETE --}}
+<div {{on-key 'ctrl+d' this.deleteShortcut}} class="keyboard-shortcuts">
+  <LinkTo @route="delm" class="btn delete-btn">
+    <i class="fas fa-trash"></i> Delete
+  </LinkTo>
+</div>
+
+{{!-- EDIT --}}
+<div {{on-key 'ctrl+e' this.editShortcut}} class="keyboard-shortcuts">
+  <LinkTo @route="editMovie" class="btn edit-btn">
+    <i class="fa-solid fa-pen"></i> Edit
+  </LinkTo>
+</div>
+
+{{!-- FETCH --}}
+<div {{on-key 'ctrl+f' this.fetchShortcut}} class="keyboard-shortcuts">
+  <LinkTo @route="fetch-movies" class="btn fetchh-btn">
+    <i class="fas fa-tv"></i> Fetch
+  </LinkTo>
+</div>
+
+<div class="custom-menus"{{on-click-outside this.closeCustomizableFields}} >
+  <div class="custom-menu" {{on "click" this.toggleCustomizableFields}}>
+    
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+
+
+ {{#if this.customizableFields}}
+  <ul>
+    <li>
+      <input
+        type="checkbox"
+        checked={{includes this.selectedFormFields "Name"}}
+        value="Name"
+        {{on "change" this.toggleFormFields}}
+      > Show Name
+    </li>
+    <li>
+      <input
+        type="checkbox"
+        checked={{includes this.selectedFormFields "Year"}}
+        value="Year"
+        {{on "change" this.toggleFormFields}}
+      > Show Year
+    </li>
+    <li>
+      <input
+        type="checkbox"
+        checked={{includes this.selectedFormFields "Genre"}}
+        value="Genre"
+        {{on "change" this.toggleFormFields}}
+      > Show Genre
+    </li>
+    <li>
+      <input
+        type="checkbox"
+        checked={{includes this.selectedFormFields "IMDb"}}
+        value="IMDb"
+        {{on "change" this.toggleFormFields}}
+      > Show IMDb
+    </li>
+    <li>
+      <input
+        type="checkbox"
+        checked={{includes this.selectedFormFields "Box Office (In Millions)"}}
+        value="Box Office (In Millions)"
+        {{on "change" this.toggleFormFields}}
+      > Show Box Office
+    </li>
+  </ul>
+{{/if}}
+
+</div>
+  </Btns>
+
+{{#if this.searchTerm }}
+  <div class="checkbox-group" {{on-click-outside this.closeSearchTerms exceptSelector=".checkbox-group,.searchMovies,.btns"}}>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Name" 
+      checked={{includes this.selectedFields "Name"}} 
+      {{on "change" this.toggleField}}
+    > Name
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Year" 
+      checked={{includes this.selectedFields "Year"}} 
+      {{on "change" this.toggleField}}
+    > Year
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Genre" 
+      checked={{includes this.selectedFields "Genre"}} 
+      {{on "change" this.toggleField}}
+    > Genre
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="IMDb" 
+      checked={{includes this.selectedFields "IMDb"}} 
+      {{on "change" this.toggleField}}
+    > IMDb
+  </label>
+  <label>
+    <input 
+      type="checkbox" 
+      value="Box_Office" 
+      checked={{includes this.selectedFields "Box_Office"}} 
+      {{on "change" this.toggleField}}
+    > Box Office
+  </label>
+</div>
+{{/if}}
+
+<EmberTable
+  class="custom-table"
+  @enableColumnReorder={{true}}
+  @onReorderColumn={{this.handleColumnReorder}}
+  @onColumnResized={{this.handleColumnResize}} 
+  as |t|>
+  <t.head
+    @columns={{@model.allColumns}}
+    @sorts={{this.sorts}}
+    @onUpdateSorts={{this.updateSorts}}
+    as |h|>
+    <h.row as |r|>
+      <r.cell as |column columnMeta|>
+        {{column.name}}
+        <EmberTh::ResizeHandle @columnMeta={{columnMeta}} />
+      </r.cell>
+    </h.row>
+  </t.head>
+
+  {{#if this.sortedMovies.length}}
+    <t.body @rows={{this.sortedMovies}} @rowHeight={{54}} as |b|>
+      <b.row as |r|>
+        <r.cell as |_ column row|>
+          {{get row column.valuePath}}
+        </r.cell>
+      </b.row>
+      
+    </t.body>
+  {{else}}
+    <tbody>
+      <tr>
+        <td colspan="6">No Movies Found</td>
+      </tr>
+    </tbody>
+  {{/if}}
+</EmberTable>

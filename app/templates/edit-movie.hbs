@@ -1,22 +1,7 @@
 {{! edit-movie.hbs }}
 
 <div class="edit-container">
-
-  {{#if this.selectedMovie}}
-    <div id="edit-form-section">
-      <form {{on "submit" this.saveChanges}}>
-        <div class="edit-form">
-          <label>Name: <input type="text" value={{this.editedFields.name}} {{on "input" (fn this.updateField "name")}} required /></label>
-          <label>Year: <input type="text" value={{this.editedFields.year}} {{on "input" (fn this.updateField "year")}} required/></label>
-          <label>Genre: <input type="text" value={{this.editedFields.genre}} {{on "input" (fn this.updateField "genre")}} required/></label>
-          <label>IMDb: <input type="text" value={{this.editedFields.imdb}} {{on "input" (fn this.updateField "imdb")}} required/></label>
-          <label>Box Office: <input type="text" value={{this.editedFields.box_office}} {{on "input" (fn this.updateField "box_office")}} required/></label>
-          <button type="submit" class="btn save-btn"> Save</button>
-        </div>
-      </form>
-    </div>
-  {{else}}
-    <div class="tb">
+<div class="tb">
       <table class="movie-table">
         <thead>
           <tr>
@@ -56,6 +41,25 @@
         </VerticalCollection>
       </table>
     </div>
-  {{/if}}
+  {{#if this.selectedMovie}}
+  <div class="modal-overlay" >
+  <div class="modal-content" >
+      <form {{on "submit" this.saveChanges}}>
+        <div class="edit-form">
+          <h2>Edit Movie</h2>
+          <label>Name: <input type="text" value={{this.editedFields.name}} {{on "input" (fn this.updateField "name")}} required /></label>
+          <label>Year: <input type="text" value={{this.editedFields.year}} {{on "input" (fn this.updateField "year")}} required/></label>
+          <label>Genre: <input type="text" value={{this.editedFields.genre}} {{on "input" (fn this.updateField "genre")}} required/></label>
+          <label>IMDb: <input type="text" value={{this.editedFields.imdb}} {{on "input" (fn this.updateField "imdb")}} required/></label>
+          <label>Box Office: <input type="text" value={{this.editedFields.box_office}} {{on "input" (fn this.updateField "box_office")}} required/></label>
+          <div class="modal-actions">
+            <button type="submit" class="btn save-btn">Save</button>
+            <button type="button" class="btn cancel-btn" {{on "click" this.closeModal}}>Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{{/if}}
 
 </div>

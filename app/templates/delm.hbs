@@ -19,31 +19,26 @@
           </tr>
         </thead>
 
-        <VerticalCollection
-          @items={{this.model}}
-          @tagName="tbody"
-          @estimateHeight={{50}}
-          @staticHeight={{true}}
-          @bufferSize={{5}}
-          @containerSelector=".tb"
-          as |movie index|
-        >
-          <tr class="movie-row">
-            <td>
-              <input
+        <tbody>
+  {{#each this.model as |movie index|}}
+    <tr class="movie-row">
+      <td>
+        <input
                 type="checkbox"
                 id="select-movie-{{movie.id}}"
                 {{on "change" (fn this.toggleSelection movie.id)}}
               />
-            </td>
-            <td>{{movie.id}}</td>
-            <td>{{movie.name}}</td>
-            <td>{{movie.year}}</td>
-            <td>{{movie.genre}}</td>
-            <td>{{movie.imdb}}</td>
-            <td>{{movie.box_office}}</td>
-          </tr>
-        </VerticalCollection>
+      </td>
+      <td>{{movie.id}}</td>
+      <td>{{movie.name}}</td>
+      <td>{{movie.year}}</td>
+      <td>{{movie.genre}}</td>
+      <td>{{movie.imdb}}</td>
+      <td>{{movie.box_office}}</td>
+    </tr>
+  {{/each}}
+</tbody>
+
 
       </table>
     </div>

@@ -8,8 +8,7 @@ export default class DelmController extends Controller {
   @service router;
   @service flashMessages;
 
-  @tracked selectedIds = new Set(); // Store selected movie IDs
-
+  @tracked selectedIds = new Set();
   get movies() {
     return this.movie.movies;
   }
@@ -17,11 +16,13 @@ export default class DelmController extends Controller {
   // Toggle selection of a movie
   @action
   toggleSelection(id, event) {
+    const newSet = new Set(this.selectedIds);
     if (event.target.checked) {
-      this.selectedIds.add(id);
+      newSet.add(id);
     } else {
-      this.selectedIds.delete(id);
+      newSet.delete(id);
     }
+    this.selectedIds = newSet;
   }
 
   // Delete selected movies

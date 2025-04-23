@@ -1,7 +1,7 @@
 <div class="fetch-btn">
-  <!-- Button 1: Traditional Fetch -->
+  {{!-- Button 1: Traditional Fetch --}}
   <div class="btn1">
-    <button class="btn add-btn" {{on "click" this.fetchMovies}}>
+    <button class="btn add-btn" type="button" {{on "click" this.fetchMovies}}>
       Fetch Movies 1
     </button>
 
@@ -14,9 +14,9 @@
     </ul>
   </div>
 
-  <!-- Button 2: Modern Fetch with Ember Concurrency -->
+  {{!-- Button 2: Modern Fetch with Ember Concurrency --}}
   <div class="btn2">
-    <button class="btn add-btn" {{on "click" this.fetchMoviesModernTask.perform}}>Fetch Movies 2</button>
+    <button class="btn add-btn" type="button" {{on "click" this.fetchMoviesModernTask.perform}}>Fetch Movies 2</button>
 
 {{#if this.fetchMoviesModernTask.isRunning}}
   <p>Loading movies...</p>

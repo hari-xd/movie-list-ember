@@ -1,0 +1,32 @@
+[
+    {
+        "name": "S.No",
+        "valuePath": "id",
+        "isResizable": true
+    },
+    {
+        "name": "Name",
+        "valuePath": "name",
+        "isResizable": true
+    },
+    {
+        "name": "Year",
+        "valuePath": "year",
+        "isResizable": true
+    },
+    {
+        "name": "Genre",
+        "valuePath": "genre",
+        "isResizable": true
+    },
+    {
+        "name": "IMDb",
+        "valuePath": "imdb",
+        "isResizable": true
+    },
+    {
+        "name": "Box Office (In Millions)",
+        "valuePath": "box_office",
+        "isResizable": true
+    }
+]

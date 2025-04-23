@@ -33,7 +33,11 @@ export default class EditMovieController extends Controller {
       box_office: movie.box_office,
     };
   }
-
+  @action
+  closeModal() {
+    this.set('selectedMovie', null);
+  }
+  
   // Update edited field
   @action
   updateField(field, event) {

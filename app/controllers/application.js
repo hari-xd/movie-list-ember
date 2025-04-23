@@ -7,7 +7,7 @@ export default class ApplicationController extends Controller {
   @service flashMessages;
 
   @action
-  close(flash) {
-    this.flashMessages.remove(flash);
+  close() {
+    this.flashMessages.remove();
   }
 }

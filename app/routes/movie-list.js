@@ -1,4 +1,3 @@
-// app/routes/movie-list.js
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
@@ -6,13 +5,21 @@ export default class MovieListRoute extends Route {
   @service movie;
 
   async model() {
-    // Only fetch and set if movies are not already loaded
+    // Load columns from static JSON
+    const columnsResponse = await fetch('/assets/data/table-head.json');
+    let allColumns = await columnsResponse.json();
+
+  
     if (this.movie.movies.length === 0) {
       const response = await fetch('/assets/data/data.json');
       const data = await response.json();
-      this.movie.setMovies(data); // ✅ Store in service
+      this.movie.setMovies(data);
     }
-
-    return this.movie.movies; // ✅ Always return from service
+    console.log(this.movie.movies);
+    console.log(allColumns);
+    return {
+      movies: this.movie.movies,
+      allColumns
+    };
   }
 }

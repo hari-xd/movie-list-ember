@@ -13,14 +13,11 @@ module.exports = function (environment) {
       defaultDynamicHeight: false,
     },
     flashMessageDefaults: {
-      // flash message defaults
-      timeout: 200000,
+      timeout: 3000,  // 3 seconds timeout for all flash messages
       extendedTimeout: 0,
       priority: 200,
-      sticky: false,
+      sticky: false,  // Not sticky, so it will disappear after timeout
       showProgress: true,
-
-      // service defaults
       type: 'info',
       types: ['success', 'info', 'warning', 'danger'],
       preventDuplicates: false,
